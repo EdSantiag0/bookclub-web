@@ -6,7 +6,12 @@ export const Link = ({ children, ...props }) => (
   </ChakraLink>
 )
 Link.Action = ({ text, actionText, ...props }) => (
-  <Flex w="100%" alignItems="center" justifyContent="center">
+  <Flex
+    flexDir={['column', 'row']}
+    w="100%"
+    alignItems="center"
+    justifyContent="center"
+  >
     <ChakraLink mr="4px" fontSize="14px" color="brand.darkGrey" {...props}>
       {text}
     </ChakraLink>
