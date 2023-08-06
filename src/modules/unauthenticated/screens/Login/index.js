@@ -43,10 +43,10 @@ export const LoginScreen = () => {
             id="email"
             name="email"
             value={values.email}
-            mt="24px"
-            placeholder="email@exemplo.com"
             onChange={handleChange}
             error={errors.email}
+            mt="24px"
+            placeholder="email@exemplo.com"
           />
           <Input.Password
             id="password"
