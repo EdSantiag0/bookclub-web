@@ -9,7 +9,7 @@ export const MenuItem = ({ icon, text, divider }) => (
     borderBottomColor="brand.greyLight"
   >
     <Icon color="brand.greyDark" boxSize="18px" mr="8px" as={icon} />
-    <Text color="brand.greyDark" fontWeigth="600" size="14px">
+    <Text color="brand.greyDark" fontWeight="600" size="14px">
       {text}
     </Text>
   </ChakraMenuItem>

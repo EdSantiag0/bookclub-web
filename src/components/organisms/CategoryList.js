@@ -8,8 +8,12 @@ import { getCategories, getBooksByCategory } from 'services/api/request'
 export const CategoryList = () => {
   const [selected, setSelected] = useState()
   const { data } = useQuery('categories', getCategories)
-  const bookQuery = useQuery(['booksById', selected], () =>
-    getBooksByCategory(selected)
+  const bookQuery = useQuery(
+    ['booksById', selected],
+    () => getBooksByCategory(selected),
+    {
+      enabled: !!selected
+    }
   )
 
   useEffect(() => {
@@ -26,7 +30,16 @@ export const CategoryList = () => {
       h="400px"
     >
       <Text.ScreenTitle>Categorias</Text.ScreenTitle>
-      <Flex mt="12px" flexDir="row">
+      <Flex
+        css={{
+          '::-webkit-scrollbar': {
+            display: 'none'
+          }
+        }}
+        overflowX={['scroll', 'auto']}
+        mt="12px"
+        flexDir="row"
+      >
         {data?.data &&
           data?.data.map((item) => (
             <CategoryCard
@@ -37,7 +50,17 @@ export const CategoryList = () => {
             />
           ))}
       </Flex>
-      <Flex mt="12px" pb="48px" flexDir="row">
+      <Flex
+        css={{
+          '::-webkit-scrollbar': {
+            display: 'none'
+          }
+        }}
+        overflowX={['scroll', 'auto']}
+        mt="12px"
+        pb="48px"
+        flexDir="row"
+      >
         {bookQuery?.data &&
           bookQuery?.data?.data.map((item) => (
             <BookCard key={`book_${item.id}`} {...item} />
