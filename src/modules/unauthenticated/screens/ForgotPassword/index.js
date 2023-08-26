@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useMutation } from 'react-query'
-import { forgotPasswordCall } from 'services/api/request'
+import { forgotPasswordCall } from 'services/api/requests'
 
 export const ForgotPasswordScreen = () => {
   const navigate = useNavigate()

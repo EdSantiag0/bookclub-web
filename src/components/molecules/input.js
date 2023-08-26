@@ -48,9 +48,12 @@ Input.Password = ({ value, onChange, id, name, ...props }) => {
           <Button
             bg="transparent"
             _hover={{ bg: 'transparent' }}
-            h="1.75rem"
             size="sm"
             onClick={handleClick}
+            h="100%"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
           >
             {show ? (
               <ViewOffIcon boxSize="18px" color="brand.primary" />

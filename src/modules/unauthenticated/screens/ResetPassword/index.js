@@ -4,7 +4,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useMutation } from 'react-query'
-import { resetPasswordCall } from 'services/api/request'
+import { resetPasswordCall } from 'services/api/requests'
 
 export const ResetPasswordScreen = () => {
   const navigate = useNavigate()
@@ -128,7 +128,7 @@ export const ResetPasswordScreen = () => {
         backgroundSize="cover"
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
-        borderTopLeftRadios="32px"
+        borderTopLeftRadius="32px"
         borderBottomLeftRadius="32px"
       />
     </Flex>

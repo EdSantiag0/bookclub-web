@@ -5,7 +5,7 @@ import { restoreItem } from 'services/storage'
 export const api = axios.create({
   baseURL: 'https://api.bookclub.mapadaprogramacao.com.br',
   headers: {
-    Authorization: `bearer ${restoreItem('@bookclub_token')} `
+    Authorization: `bearer ${restoreItem('@bookclub_token')}`
   }
 })
 

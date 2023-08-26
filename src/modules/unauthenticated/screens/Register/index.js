@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useMutation } from 'react-query'
-import { registerCall } from 'services/api/request'
+import { registerCall } from 'services/api/requests'
 
 export const RegisterScreen = () => {
   const navigate = useNavigate()
@@ -14,16 +14,16 @@ export const RegisterScreen = () => {
       toast({
         title: 'Falha ao criar a conta.',
         description:
-          error?.response?.data?.error || 'Por favor, tente novamente',
+          error?.response?.data?.error || 'Por favor, tente novamente.',
         status: 'error',
         duration: 3000,
         isClosable: true
       })
     },
-    onSuccess: (data) => {
+    onSuccess: () => {
       toast({
-        title: 'Conta criada com sucesso!.',
-        status: 'error',
+        title: 'Conta criada com sucesso!',
+        status: 'success',
         duration: 6000,
         isClosable: true
       })
@@ -49,12 +49,12 @@ export const RegisterScreen = () => {
         .min(6, 'Senha deve ter ao menos 6 caracteres.')
         .required('Senha é obrigatório.'),
       confirmPassword: Yup.string()
-        .min(6, 'confirmar a senha deve ter ao menos 6 caracteres.')
-        .required('confirmar a senha é obrigatório.')
+        .min(6, 'Confirmar a senha deve ter ao menos 6 caracteres.')
+        .required('Confirmar a senha é obrigatório.')
         .oneOf([Yup.ref('password'), null], 'Senhas não são iguais.')
     }),
     onSubmit: (data) => {
-      console.log({ data })
+      mutation.mutate(data)
     }
   })
 
@@ -78,7 +78,7 @@ export const RegisterScreen = () => {
             value={values.name}
             onChange={handleChange}
             error={errors.name}
-            mt=" 24px"
+            mt="24px"
             placeholder="Nome completo"
           />
           <Input
@@ -87,7 +87,7 @@ export const RegisterScreen = () => {
             value={values.email}
             onChange={handleChange}
             error={errors.email}
-            mt=" 16px"
+            mt="16px"
             placeholder="E-mail"
           />
           <Input.Password
@@ -110,7 +110,7 @@ export const RegisterScreen = () => {
           />
 
           <Button
-            isLoadin={mutation.isLoading}
+            isLoading={mutation.isLoading}
             mt="24px"
             onClick={handleSubmit}
           >
@@ -118,7 +118,7 @@ export const RegisterScreen = () => {
           </Button>
           <Link.Action
             onClick={() => navigate('/')}
-            mt="8px"
+            mt="48px"
             text="Já possui uma conta?"
             actionText="Faça login aqui"
           />
@@ -131,7 +131,7 @@ export const RegisterScreen = () => {
         backgroundSize="cover"
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
-        borderTopLeftRadios="32px"
+        borderTopLeftRadius="32px"
         borderBottomLeftRadius="32px"
       />
     </Flex>

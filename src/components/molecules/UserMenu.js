@@ -1,6 +1,7 @@
 import { Text, MenuItem } from 'components/atoms'
 import { Avatar, Flex, Menu, MenuButton, MenuList } from '@chakra-ui/react'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { ChevronDownIcon } from '@chakra-ui/icons'
 import { BsBookmarkHeart } from 'react-icons/bs'
 import { LiaUser } from 'react-icons/lia'
@@ -13,43 +14,50 @@ import {
 
 export const UserMenu = () => {
   const userStore = useSelector((state) => state.user)
+  const navigate = useNavigate()
 
   const menuOprtions = [
     {
       id: 0,
       icon: BsBookmarkHeart,
       text: 'Favoritos',
-      divider: false
+      divider: false,
+      onClick: () => navigate('/favorites')
     },
     {
       id: 1,
       icon: LiaUser,
       text: 'Dados Pessoais',
-      divider: false
+      divider: false,
+      onClick: () => navigate('/')
     },
     {
       id: 2,
       icon: GoShieldCheck,
       text: 'Alterar Senha',
-      divider: true
+      divider: true,
+      onClick: () => navigate('/')
     },
     {
       id: 3,
       icon: HiOutlineDocumentText,
       text: 'Termo de Uso',
-      divider: false
+      divider: false,
+      onClick: () => navigate('/')
     },
     {
       id: 4,
       icon: HiOutlineClipboardList,
       text: 'Política de Privacidade',
-      divider: true
+      divider: true,
+      onClick: () => navigate('/')
     },
     {
       id: 5,
       icon: HiOutlineLogout,
       text: 'Logout',
-      divider: false
+      divider: false,
+      onClick: () => navigate('/')
     }
   ]
 
@@ -68,7 +76,7 @@ export const UserMenu = () => {
             mr={['6px', '12px']}
           />
           <Flex display={['none', 'flex']}>
-            <Text fontWeigth="bold" maxLength="40px">
+            <Text fontWeight="bold" maxLength="40px">
               {userStore?.user?.name}
             </Text>
           </Flex>
@@ -77,7 +85,11 @@ export const UserMenu = () => {
       </MenuButton>
       <MenuList>
         {menuOprtions.map((item) => (
-          <MenuItem key={`menu_item_${item.id}`} {...item} />
+          <MenuItem
+            onClick={() => item.onClick()}
+            key={`menu_item_${item.id}`}
+            {...item}
+          />
         ))}
       </MenuList>
     </Menu>

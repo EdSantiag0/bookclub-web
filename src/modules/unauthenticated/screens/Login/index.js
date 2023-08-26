@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useMutation } from 'react-query'
-import { loginCall } from 'services/api/request'
+import { loginCall } from 'services/api/requests'
 import { saveItem } from 'services/storage'
 import { setAll } from 'services/store/slices/user'
 
@@ -127,7 +127,7 @@ export const LoginScreen = () => {
         backgroundSize="cover"
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
-        borderTopLeftRadios="32px"
+        borderTopLeftRadius="32px"
         borderBottomLeftRadius="32px"
       />
     </Flex>

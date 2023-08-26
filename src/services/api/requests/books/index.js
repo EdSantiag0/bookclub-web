@@ -1,0 +1,22 @@
+import { api } from 'services/api'
+
+export const getHighlightedBooks = () =>
+  api.get('/book?highlighted=true', {
+    headers: {
+      Authorization: `bearer ${localStorage.getItem('@bookclub_token')}`
+    }
+  })
+
+export const getBookByCategory = (id) =>
+  api.get(`/book?category_id=${id}`, {
+    headers: {
+      Authorization: `bearer ${localStorage.getItem('@bookclub_token')}`
+    }
+  })
+
+export const getBookDetail = (id) =>
+  api.get(`/book/${id}`, {
+    headers: {
+      Authorization: `bearer ${localStorage.getItem('@bookclub_token')}`
+    }
+  })
