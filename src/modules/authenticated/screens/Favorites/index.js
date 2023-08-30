@@ -25,10 +25,7 @@ export const FavoritesScreen = () => {
           w="100%"
         >
           {data?.data?.map((item) => (
-            <BookCard
-              key={`book_list_favorites_${item.book.id}`}
-              {...item.book}
-            />
+            <BookCard key={`book_favorite_${item.book.id}`} {...item.book} />
           ))}
         </Flex>
       </Flex>

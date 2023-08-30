@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useQuery } from 'react-query'
 import { Flex } from '@chakra-ui/react'
-import { Text } from 'components/atoms'
+import { Text, EmptyMessage, Loader } from 'components/atoms'
 import { CategoryCard, BookCard } from 'components/molecules'
 import { getCategories, getBooksByCategory } from 'services/api/requests'
 
@@ -9,11 +9,17 @@ export const CategoryList = ({ title, categoryId }) => {
   const [selected, setSelected] = useState(categoryId)
 
   const { data } = useQuery('categories', getCategories)
-  const bookQuery = useQuery(
-    ['booksById', selected],
+  const {
+    data: bookQuery,
+    refetch,
+    isLoading
+  } = useQuery(
+    [`booksById-${selected}`, selected],
     () => getBooksByCategory(selected),
     {
-      enabled: !!selected
+      enabled: !!selected,
+      refetchOnWindowFocus: true,
+      refetchOnMount: true
     }
   )
 
@@ -23,9 +29,16 @@ export const CategoryList = ({ title, categoryId }) => {
     }
   }, [data])
 
+  useEffect(() => {
+    if (categoryId) {
+      setSelected(categoryId)
+      refetch()
+    }
+  }, [categoryId])
+
   return (
     <Flex
-      flexDirection="column"
+      flexDir="column"
       mt="48px"
       paddingX={['24px', '48px', '80px', '112px']}
       h="520px"
@@ -53,7 +66,6 @@ export const CategoryList = ({ title, categoryId }) => {
             ))}
         </Flex>
       )}
-
       <Flex
         css={{
           '::-webkit-scrollbar': {
@@ -65,8 +77,12 @@ export const CategoryList = ({ title, categoryId }) => {
         pb="48px"
         flexDir="row"
       >
-        {bookQuery?.data &&
-          bookQuery?.data?.data.map((item) => (
+        {isLoading && <Loader />}
+        {!isLoading && bookQuery && bookQuery?.data?.length === 0 && (
+          <EmptyMessage>Nenhum livro encontrado</EmptyMessage>
+        )}
+        {bookQuery &&
+          bookQuery?.data.map((item) => (
             <BookCard key={`book_${item.id}`} {...item} />
           ))}
       </Flex>

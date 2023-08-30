@@ -1,11 +1,8 @@
 import { Flex } from '@chakra-ui/react'
 import { BookCard } from 'components/molecules'
-import { Text } from 'components/atoms'
-import { useQuery } from 'react-query'
-import { getHighlightedBooks } from 'services/api/requests'
+import { Text, Loader, EmptyMessage } from 'components/atoms'
 
-export const BookList = () => {
-  const { data } = useQuery('highlighted', getHighlightedBooks)
+export const BookList = ({ title, data, isLoading }) => {
   return (
     <Flex
       flexDir="column"
@@ -18,12 +15,15 @@ export const BookList = () => {
         }
       }}
     >
-      <Text.ScreenTitle>Destaques</Text.ScreenTitle>
+      <Text.ScreenTitle>{title}</Text.ScreenTitle>
+      {isLoading && <Loader />}
+
+      {(!data || data?.length === 0) && (
+        <EmptyMessage>Nenhum livro encontrado</EmptyMessage>
+      )}
       <Flex mt={['12px', '24px']} flexDir="row">
-        {data?.data &&
-          data?.data.map((item) => (
-            <BookCard key={`book_${item.id}`} {...item} />
-          ))}
+        {data &&
+          data?.map((item) => <BookCard key={`book_${item.id}`} {...item} />)}
       </Flex>
     </Flex>
   )
