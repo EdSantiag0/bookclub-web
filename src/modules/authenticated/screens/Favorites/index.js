@@ -1,5 +1,5 @@
 import { Flex } from '@chakra-ui/react'
-import { BookCard, NavBar, Text } from 'components'
+import { NavBar, Text, BookCard } from 'components'
 import { useQuery } from 'react-query'
 import { getFavorites } from 'services/api/requests'
 
@@ -13,9 +13,9 @@ export const FavoritesScreen = () => {
         flexDir="column"
         w="100%"
         mt={['24px', '48px']}
-        padding={['24px', '48px', '80px', '112px']}
+        paddingX={['24px', '48px', '80px', '112px']}
       >
-        <Text.ScreenTitle>Favoritos </Text.ScreenTitle>
+        <Text.ScreenTitle>Favoritos</Text.ScreenTitle>
         <Flex
           mt="24px"
           flexDir="row"

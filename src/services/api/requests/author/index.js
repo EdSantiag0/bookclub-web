@@ -1,7 +1,7 @@
 import { api } from 'services/api'
 
-export const getCategories = () =>
-  api.get('/category', {
+export const getAuthorDetail = (id) =>
+  api.get(`/author/${id}`, {
     headers: {
       Authorization: `bearer ${localStorage.getItem('@bookclub_token')}`
     }

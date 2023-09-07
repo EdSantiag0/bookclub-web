@@ -15,7 +15,7 @@ export const addBookToFavorites = (data) =>
   })
 
 export const deleteBookFromFavorites = (id) =>
-  api.get(`/userbook/${id}`, {
+  api.delete(`/userbook/${id}`, {
     headers: {
       Authorization: `bearer ${localStorage.getItem('@bookclub_token')}`
     }

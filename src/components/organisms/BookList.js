@@ -21,6 +21,7 @@ export const BookList = ({ title, data, isLoading }) => {
       {(!data || data?.length === 0) && (
         <EmptyMessage>Nenhum livro encontrado</EmptyMessage>
       )}
+
       <Flex mt={['12px', '24px']} flexDir="row">
         {data &&
           data?.map((item) => <BookCard key={`book_${item.id}`} {...item} />)}

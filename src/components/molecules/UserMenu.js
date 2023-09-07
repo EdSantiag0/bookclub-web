@@ -12,11 +12,11 @@ import {
   HiOutlineLogout
 } from 'react-icons/hi'
 
-export const UserMenu = ({ setShowModal }) => {
+export const UserMenu = ({ setShowModal, onLogout }) => {
   const userStore = useSelector((state) => state.user)
   const navigate = useNavigate()
 
-  const menuOprtions = [
+  const menuOptions = [
     {
       id: 0,
       icon: BsBookmarkHeart,
@@ -43,21 +43,21 @@ export const UserMenu = ({ setShowModal }) => {
       icon: HiOutlineDocumentText,
       text: 'Termo de Uso',
       divider: false,
-      onClick: () => navigate('/')
+      onClick: () => setShowModal('terms')
     },
     {
       id: 4,
       icon: HiOutlineClipboardList,
       text: 'Política de Privacidade',
       divider: true,
-      onClick: () => setShowModal('privecy-policy')
+      onClick: () => setShowModal('privacy-policy')
     },
     {
       id: 5,
       icon: HiOutlineLogout,
       text: 'Logout',
       divider: false,
-      onClick: () => navigate('/')
+      onClick: () => onLogout()
     }
   ]
 
@@ -72,7 +72,8 @@ export const UserMenu = ({ setShowModal }) => {
             h={['36px', '48px']}
             borderWidth="2px"
             borderColor="brand.primary"
-            bg="brand.greyLigth"
+            color="black"
+            bg="brand.greyLight"
             mr={['6px', '12px']}
           />
           <Flex display={['none', 'flex']}>
@@ -84,7 +85,7 @@ export const UserMenu = ({ setShowModal }) => {
         </Flex>
       </MenuButton>
       <MenuList>
-        {menuOprtions.map((item) => (
+        {menuOptions.map((item) => (
           <MenuItem
             onClick={() => item.onClick()}
             key={`menu_item_${item.id}`}

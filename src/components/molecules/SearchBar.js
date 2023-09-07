@@ -1,4 +1,4 @@
-import { Flex, InputLeftElement, Input, InputGroup } from '@chakra-ui/react'
+import { Flex, Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
 import { SearchIcon } from '@chakra-ui/icons'
 import { useLocation, useNavigate } from 'react-router-dom'
 
@@ -13,7 +13,7 @@ export const SearchBar = ({ query, setQuery }) => {
   }
 
   return (
-    <Flex w="478px" h="52px" bg="brand.greyLigth" borderRadius="12px">
+    <Flex w="478px" h="52px" bg="brand.greyLight" borderRadius="12px">
       <InputGroup>
         <InputLeftElement h="100%">
           <SearchIcon color="brand.greyDark" />
@@ -25,7 +25,7 @@ export const SearchBar = ({ query, setQuery }) => {
           borderWidth="0px"
           w="100%"
           h="100%"
-          placeholder="Digite o nome do livro ou do autor"
+          placeholder="Digite o nome do livro ou autor"
           _placeholder={{ color: 'brand.greyDark' }}
           focusBorderColor="transparent"
         />

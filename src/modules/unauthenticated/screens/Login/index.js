@@ -19,7 +19,7 @@ export const LoginScreen = () => {
       toast({
         title: 'Falha ao realizar login.',
         description:
-          error?.response?.data?.error || 'Por favor, tente novamente',
+          error?.response?.data?.error || 'Por favor, tente novamente.',
         status: 'error',
         duration: 3000,
         isClosable: true
@@ -27,12 +27,12 @@ export const LoginScreen = () => {
     },
     onSuccess: (data) => {
       toast({
-        title: 'Login feito com sucesso!.',
-        status: 'error',
+        title: 'Login feito com sucesso!',
+        status: 'success',
         duration: 6000,
         isClosable: true
       })
-      saveItem('@bookclub_token', data?.data.token)
+      saveItem('@bookclub_token', data?.data?.token)
       dispatch(
         setAll({
           token: data?.data?.token,
@@ -51,10 +51,10 @@ export const LoginScreen = () => {
     validationSchema: Yup.object({
       email: Yup.string()
         .email('E-mail inválido')
-        .required('E-mail é obrigatório'),
+        .required('E-mail é obrigatório.'),
       password: Yup.string()
         .min(6, 'Senha deve ter ao menos 6 caracteres')
-        .required('Senha é obrigatório')
+        .required('Senha é obrigatório.')
     }),
     onSubmit: (data) => {
       mutation.mutate(data)
@@ -89,10 +89,11 @@ export const LoginScreen = () => {
             name="password"
             value={values.password}
             mt="16px"
-            placeholder="*************"
+            placeholder="**************"
             onChange={handleChange}
             error={errors.password}
           />
+
           <Flex
             mt="8px"
             w="100%"
@@ -107,14 +108,13 @@ export const LoginScreen = () => {
           <Button
             isLoading={mutation.isLoading}
             onClick={handleSubmit}
-            mb="12px"
             mt="24px"
           >
             Login
           </Button>
           <Link.Action
             onClick={() => navigate('/signup')}
-            mt="8px"
+            mt="48px"
             text="Não possui uma conta?"
             actionText="Cadastre-se aqui"
           />
