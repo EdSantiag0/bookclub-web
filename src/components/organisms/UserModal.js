@@ -131,6 +131,7 @@ export const UserModal = ({ onClose }) => {
               accept="image/*"
             />
             <Avatar
+              cursor="pointer"
               name={userStore?.user?.name}
               src={userStore?.user?.avatar_url}
               w="100px"
@@ -139,7 +140,6 @@ export const UserModal = ({ onClose }) => {
               borderColor="brand.primary"
               bg="brand.greyLight"
               onClick={() => inputFileRef?.current?.click()}
-              cursor="pointer"
             />
             <Flex
               margin="-32px"

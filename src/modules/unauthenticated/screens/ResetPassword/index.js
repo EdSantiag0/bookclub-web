@@ -124,7 +124,7 @@ export const ResetPasswordScreen = () => {
       <Flex
         w={['0%', '0%', '0%', '60%']}
         h="100vh"
-        backgroundImage="url('/img/auth_background.svg')"
+        backgroundImage="url('/img/capa04.jpg')"
         backgroundSize="cover"
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
