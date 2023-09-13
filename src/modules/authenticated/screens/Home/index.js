@@ -4,7 +4,11 @@ import { useQuery } from 'react-query'
 import { getHighlightedBooks } from 'services/api/requests'
 
 export const HomeScreen = () => {
-  const { data, isLoading } = useQuery('highlighted', getHighlightedBooks)
+  const { error, data, isLoading } = useQuery(
+    'highlighted',
+    getHighlightedBooks
+  )
+  console.log({ error, data })
   return (
     <Flex flexDir="column">
       <NavBar />

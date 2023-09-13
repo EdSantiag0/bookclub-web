@@ -93,7 +93,7 @@ export const BookDetailScreen = () => {
         <Flex
           w={['170px', '238px']}
           h={['256px', '358px']}
-          backgroundImage={`url(${data?.data?.book?.cover_url})`}
+          backgroundImage={data?.data?.book?.cover_url}
           backgroundSize="cover"
           backgroundPosition="center"
           backgroundRepeat="no-repeat"

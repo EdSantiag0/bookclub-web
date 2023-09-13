@@ -16,7 +16,7 @@ export const BookCard = ({ id, cover_url, name, author }) => {
       onClick={() => navigate(`/book-detail/${id}`)}
     >
       <Flex
-        backgroundImage={`url(${cover_url})`}
+        backgroundImage={cover_url}
         backgroundSize="cover"
         backgroundPosition="center"
         h={['180px', '230px']}
