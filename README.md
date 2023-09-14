@@ -1,5 +1,7 @@
 # BookClub
 
+[![BookClub Demo] (/public/img/demo.png 'BookClub Demo')](https://github.com/EdSantiag0/bookclub-web/blob/main/public/img/demo.png)
+
 ## Description
 
 App made in React.js with the main function of a virtual library. The user can search for books and authors, get their info and favorite the books.
@@ -7,6 +9,8 @@ App made in React.js with the main function of a virtual library. The user can s
 App feito em React.js com função principal da biblioteca virtual. O usuário pode pesquisar livros e autores, obter suas informações e favoritar os livros.
 
 ## Live Version
+
+<https://bookclub-web-lovat.vercel.app/>
 
 ## Techs Used
 
