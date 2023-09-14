@@ -15,6 +15,7 @@ App feito em React.js com função principal da biblioteca virtual. O usuário p
 ## Techs Used
 
 - React.js
+- Versel
 - ChakraUI
 - Styled Components
 - React Router Dom
