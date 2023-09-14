@@ -87,7 +87,7 @@ export const ForgotPasswordScreen = () => {
       <Flex
         w={['0%', '0%', '0%', '60%']}
         h="100vh"
-        backgroundImage="url('/img/capa02.jpg')"
+        backgroundImage="url('/img/capa01.jpg')"
         backgroundSize="cover"
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
