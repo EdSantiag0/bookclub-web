@@ -10,7 +10,7 @@ App feito em React.js com função principal da biblioteca virtual. O usuário p
 
 ## Live Version
 
-<https://bookclub-web-lovat.vercel.app/>
+<https://bookclub-rls5m4456-edsantiag0.vercel.app/>
 
 ## Techs Used
 
